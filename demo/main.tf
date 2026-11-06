@@ -1,10 +1,10 @@
 # ------------------------------------------------------------------- #
 # Use this project to provision his creates an AWS Elastic File System (EFS) environment that deliberately breaks standard enterprise cloud compliance checks (like Checkov's CKV_AWS_184 and CKV_AWS_15 rules)
-# AUTHOR: ADAM M | +91-9739110917 | www.wezvatech.in and Obasjoe
+# AUTHOR: ADAM M | +91-9739110917 | www.wezvatech.in
 # ------------------------------------------------------------------- #
 
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
 terraform {
@@ -47,7 +47,7 @@ resource "aws_kms_key" "efs_cmk" {
   }
 }
 
-# ✅ Remediated CKV_AWS_42 + CKV_AWS_184: EFS encryption enabled with customer-managed KMS key
+# ✅ Remediated (CKV_AWS_42 / CKV_AWS_184): EFS encryption enabled and KMS Key ARN mapped to the customer-managed key
 resource "aws_efs_file_system" "demo_efs" {
   creation_token = "wezvatech-aiops-demo"
   encrypted      = true
@@ -59,7 +59,7 @@ resource "aws_efs_file_system" "demo_efs" {
   }
 }
 
-# ✅ Remediated: Backup policy explicitly enabled to prevent data loss vulnerabilities
+# ✅ Remediated (security-guardrails.md - Backup Enforcement): Backup policy set to ENABLED
 resource "aws_efs_backup_policy" "policy" {
   file_system_id = aws_efs_file_system.demo_efs.id
 

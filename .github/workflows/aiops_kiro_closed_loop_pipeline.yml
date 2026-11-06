@@ -116,8 +116,8 @@ jobs:
       - name: Commit & Push Patches to PR Branch
         if: steps.run_scan.outputs.violations > 0
         run: |
-          git config --global user.name "wezvatech-aiops-bot"
-          git config --global user.email "aiops-engine@wezvatech.com"
+          git config --global user.name "obasjoe-aiops-bot"
+          git config --global user.email "obasjoe@yahoo.com"
           
           # 🔑 FIXED: Target only HCL config files. Do NOT add internal system/json logs!
           git add *.tf
