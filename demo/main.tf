@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------- #
 # Use this project to provision his creates an AWS Elastic File System (EFS) environment that deliberately breaks standard enterprise cloud compliance checks (like Checkov's CKV_AWS_184 and CKV_AWS_15 rules)
-# AUTHOR: ADAM M | +91-9739110917 | www.wezvatech.in
+# AUTHOR: ADAM M | +91-9739110917 | www.wezvatech.in and Obasjoe Technology
 # ------------------------------------------------------------------- #
 
 provider "aws" {
